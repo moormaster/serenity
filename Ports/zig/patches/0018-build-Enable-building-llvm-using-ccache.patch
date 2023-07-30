@@ -1,0 +1,29 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Andre Herbst <moormaster@gmx.net>
+Date: Sun, 30 Jul 2023 12:27:57 +0200
+Subject: [PATCH] build: Enable building llvm using ccache
+
+---
+ build | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/build b/build
+index ce4ded52344a89fbad56141c5ad30b11f46d4527..6233c3f311cffbe7263b940aa5c4187ca906cc74 100755
+--- a/build
++++ b/build
+@@ -28,6 +28,7 @@ cmake "$ROOTDIR/llvm" \
+   -DCMAKE_INSTALL_PREFIX="$ROOTDIR/out/host" \
+   -DCMAKE_PREFIX_PATH="$ROOTDIR/out/host" \
+   -DCMAKE_BUILD_TYPE=Release \
++  -DLLVM_CCACHE_BUILD=ON \
+   -DLLVM_ENABLE_PROJECTS="lld;clang" \
+   -DLLVM_ENABLE_LIBXML2=OFF \
+   -DLLVM_ENABLE_ZSTD=OFF \
+@@ -196,6 +197,7 @@ cmake "$ROOTDIR/llvm" \
+   -DCMAKE_AR="$ROOTDIR/out/host/bin/llvm-ar" \
+   -DCMAKE_RANLIB="$ROOTDIR/out/host/bin/llvm-ranlib" \
+   -DCMAKE_TOOLCHAIN_FILE="$ROOTDIR/out/CMakeToolchain.txt" \
++  -DLLVM_CCACHE_BUILD=ON \
+   -DLLVM_ENABLE_BACKTRACES=OFF \
+   -DLLVM_ENABLE_BINDINGS=OFF \
+   -DLLVM_ENABLE_CRASH_OVERRIDES=OFF \

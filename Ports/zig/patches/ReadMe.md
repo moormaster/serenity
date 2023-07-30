@@ -127,3 +127,8 @@ them to look for the host libraries in the target libc locations.
 build: Set Zig version to 0.12.0-dev.141+ddf5859c2
 
 
+## `0018-build-Enable-building-llvm-using-ccache.patch`
+
+build: Enable building llvm using ccache
+
+
